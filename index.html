@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Вадим – Компьютерная помощь в Ульяновске</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Шапка */
+        header {
+            background: #0f172a;
+            color: #f1f5f9;
+            padding: 18px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .brand {
+            font-size: 1.3rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .brand i {
+            color: #38bdf8;
+        }
+        .header-contacts {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .header-phone {
+            font-size: 1.2rem;
+            font-weight: 600;
+            background: #38bdf8;
+            color: #0f172a;
+            padding: 8px 20px;
+            border-radius: 40px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.2s;
+        }
+        .header-phone:hover {
+            background: #7dd3fc;
+            transform: scale(1.02);
+        }
+        .header-max {
+            background: #2563eb;
+            color: #ffffff;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.2s;
+            border: 2px solid transparent;
+        }
+        .header-max:hover {
+            background: #1d4ed8;
+            border-color: #93c5fd;
+            transform: scale(1.02);
+        }
+
+        /* Баннер */
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #f8fafc;
+            padding: 90px 0 80px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        .hero h1 i {
+            color: #38bdf8;
+            margin-right: 10px;
+        }
+        .hero .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .hero .btn-hero {
+            padding: 14px 38px;
+            border-radius: 60px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: 0.2s;
+            border: 2px solid transparent;
+        }
+        .btn-hero-phone {
+            background: #38bdf8;
+            color: #0f172a;
+        }
+        .btn-hero-phone:hover {
+            background: #7dd3fc;
+            transform: scale(1.03);
+        }
+        .btn-hero-max {
+            background: #2563eb;
+            color: #fff;
+        }
+        .btn-hero-max:hover {
+            background: #1d4ed8;
+            border-color: #93c5fd;
+            transform: scale(1.03);
+        }
+
+        /* Блок «Решаю задачи» с фото */
+        .about {
+            padding: 70px 0 60px;
+            background: #ffffff;
+        }
+        .about .container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+        .about-photo {
+            flex: 0 0 180px;
+            text-align: center;
+        }
+        .about-photo img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #38bdf8;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            background: #e2e8f0;
+        }
+        .about-photo .placeholder-icon {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: #94a3b8;
+            border: 4px solid #38bdf8;
+        }
+        .about-text {
+            flex: 1;
+            min-width: 280px;
+        }
+        .about-text h2 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .about-text h2 i {
+            color: #0f172a;
+            margin-right: 10px;
+        }
+        .about-text .desc {
+            font-size: 1.15rem;
+            color: #334155;
+            margin-bottom: 20px;
+        }
+        .about-text .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px 25px;
+        }
+        .about-text .feature-item {
+            background: #f1f5f9;
+            padding: 10px 22px;
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            font-weight: 500;
+            border: 1px solid #e2e8f0;
+        }
+        .about-text .feature-item i {
+            color: #0f172a;
+        }
+
+        /* Услуги */
+        .services {
+            padding: 70px 0 60px;
+            background: #f8fafc;
+        }
+        .services h2 {
+            text-align: center;
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin-bottom: 45px;
+        }
+        .services h2 i {
+            color: #0f172a;
+            margin-right: 10px;
+        }
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+        .service-item {
+            background: #ffffff;
+            padding: 28px 18px 22px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            transition: 0.25s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+        .service-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 28px -8px rgba(0,0,0,0.1);
+            border-color: #38bdf8;
+        }
+        .service-item i {
+            font-size: 2.6rem;
+            color: #0f172a;
+            margin-bottom: 12px;
+        }
+        .service-item h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .service-item p {
+            font-size: 0.95rem;
+            color: #475569;
+        }
+        .service-item .price {
+            margin-top: 14px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #0f172a;
+            background: #e2e8f0;
+            display: inline-block;
+            padding: 4px 18px;
+            border-radius: 30px;
+        }
+
+        /* ОТЗЫВЫ */
+        .reviews {
+            padding: 70px 0 60px;
+            background: #ffffff;
+        }
+        .reviews h2 {
+            text-align: center;
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        .reviews h2 i {
+            color: #0f172a;
+            margin-right: 10px;
+        }
+        .reviews .sub {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #475569;
+            margin-bottom: 40px;
+        }
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+        .review-card {
+            background: #f8fafc;
+            padding: 22px 18px 18px;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            transition: 0.2s;
+        }
+        .review-card:hover {
+            border-color: #38bdf8;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+        }
+        .review-card .review-text {
+            font-size: 0.95rem;
+            font-style: italic;
+            color: #1e293b;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+        .review-card .review-author {
+            font-weight: 600;
+            color: #0f172a;
+        }
+        .review-card .review-service {
+            font-size: 0.85rem;
+            color: #38bdf8;
+            background: #e2e8f0;
+            display: inline-block;
+            padding: 2px 12px;
+            border-radius: 20px;
+            margin: 4px 0 6px;
+        }
+        .review-card .review-date {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            display: block;
+            margin-top: 4px;
+        }
+
+        /* Контакты */
+        .contacts {
+            background: #0f172a;
+            color: #f8fafc;
+            padding: 60px 0;
+            text-align: center;
+        }
+        .contacts h2 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .contacts .sub {
+            font-size: 1.15rem;
+            opacity: 0.8;
+            margin-bottom: 35px;
+        }
+        .contact-block {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .contact-phone {
+            background: #38bdf8;
+            color: #0f172a;
+            padding: 16px 40px;
+            border-radius: 60px;
+            font-size: 1.6rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            transition: 0.2s;
+            border: 2px solid transparent;
+        }
+        .contact-phone:hover {
+            background: #7dd3fc;
+            transform: scale(1.02);
+        }
+        .contact-phone i {
+            font-size: 1.8rem;
+        }
+        .btn-max {
+            background: #2563eb;
+            color: #ffffff;
+            padding: 16px 44px;
+            border-radius: 60px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: 0.2s;
+            border: 2px solid transparent;
+        }
+        .btn-max:hover {
+            background: #1d4ed8;
+            border-color: #93c5fd;
+            transform: scale(1.02);
+        }
+        .btn-max i {
+            font-size: 1.6rem;
+        }
+        .work-area {
+            margin-top: 30px;
+            font-size: 1.05rem;
+            background: #1e293b;
+            padding: 10px 24px;
+            border-radius: 40px;
+            display: inline-block;
+            border: 1px solid #334155;
+        }
+        .work-area i {
+            margin-right: 8px;
+            color: #38bdf8;
+        }
+
+        /* Футер */
+        footer {
+            background: #0a0f1a;
+            color: #94a3b8;
+            padding: 25px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            border-top: 1px solid #1e293b;
+        }
+        footer a {
+            color: #38bdf8;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Фиксированная кнопка */
+        .fixed-phone {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #0f172a;
+            color: #fff;
+            border-radius: 60px;
+            padding: 14px 22px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            z-index: 999;
+            border: 2px solid #38bdf8;
+            transition: 0.2s;
+        }
+        .fixed-phone:hover {
+            background: #1e293b;
+            transform: scale(1.05);
+        }
+        .fixed-phone i {
+            font-size: 1.6rem;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 992px) {
+            .service-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .reviews-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+            }
+            .brand {
+                justify-content: center;
+                font-size: 1.2rem;
+            }
+            .header-contacts {
+                flex-direction: column;
+                align-items: stretch;
+                width: 100%;
+            }
+            .header-phone, .header-max {
+                justify-content: center;
+            }
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            .about .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .about-photo {
+                flex: 0 0 auto;
+            }
+            .about-photo img,
+            .about-photo .placeholder-icon {
+                width: 140px;
+                height: 140px;
+            }
+            .about-text .features {
+                justify-content: center;
+            }
+            .reviews-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            .contact-block {
+                flex-direction: column;
+                gap: 18px;
+            }
+            .contact-phone, .btn-max {
+                width: 100%;
+                justify-content: center;
+                padding: 16px 20px;
+                font-size: 1.2rem;
+            }
+            .fixed-phone {
+                bottom: 15px;
+                right: 15px;
+                padding: 12px 18px;
+                font-size: 1rem;
+            }
+            .fixed-phone span {
+                display: none;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero .btn-hero {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ШАПКА -->
+    <header>
+        <div class="container">
+            <div class="brand">
+                <i class="fas fa-user-cog"></i> Компьютерная помощь
+            </div>
+            <div class="header-contacts">
+                <a href="tel:+79084331011" class="header-phone">
+                    <i class="fas fa-phone-alt"></i> 8 (908) 433-10-11
+                </a>
+                <a href="https://max.ru/u/f9LHodD0cOJ9hyhcK5zgdef61cDQbi7TMJ-0QNoZJwOIq9n7d1kb8sNKMlM" target="_blank" class="header-max">
+                    <i class="fas fa-comment-dots"></i> MAX
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- БАННЕР -->
+    <section class="hero">
+        <div class="container">
+            <h1><i class="fas fa-laptop"></i> Компьютерная помощь на дому в Ульяновске</h1>
+            <div class="btn-group">
+                <a href="tel:+79084331011" class="btn-hero btn-hero-phone">
+                    <i class="fas fa-phone-alt"></i> Позвонить
+                </a>
+                <a href="https://max.ru/u/f9LHodD0cOJ9hyhcK5zgdef61cDQbi7TMJ-0QNoZJwOIq9n7d1kb8sNKMlM" target="_blank" class="btn-hero btn-hero-max">
+                    <i class="fas fa-comment-dots"></i> Написать в MAX
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- РЕШАЮ ЗАДАЧИ + ФОТО -->
+    <section class="about">
+        <div class="container">
+            <div class="about-photo">
+                <!-- ВАШЕ ФОТО -->
+                <img src="1782028002782.jpg" alt="Вадим" />
+            </div>
+            <div class="about-text">
+                <h2><i class="fas fa-tasks"></i> Решаю задачи</h2>
+                <p class="desc">
+                    Здравствуйте! Меня зовут <strong>Вадим</strong>. Я оказываю профессиональную компьютерную помощь в Ульяновске и области: настройка, оптимизация, установка ПО, удаление вирусов, восстановление данных и другие программные услуги.
+                </p>
+                <div class="features">
+                    <span class="feature-item"><i class="fas fa-map-pin"></i> Выезд по городу и району</span>
+                    <span class="feature-item"><i class="fas fa-clock"></i> Быстро, понятно, без переплат</span>
+                    <span class="feature-item"><i class="fas fa-briefcase"></i> Работаю с частными лицами и бизнесом</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- УСЛУГИ -->
+    <section class="services">
+        <div class="container">
+            <h2><i class="fas fa-cogs"></i> Что я делаю</h2>
+            <div class="service-grid">
+                <div class="service-item">
+                    <i class="fas fa-wrench"></i>
+                    <h3>Настройка ПК</h3>
+                    <p>Оптимизация системы, ускорение, чистка автозагрузки</p>
+                    <span class="price">от 800 ₽</span>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Удаление вирусов</h3>
+                    <p>Лечение от вредоносных программ, восстановление после атак</p>
+                    <span class="price">от 1000 ₽</span>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-upload"></i>
+                    <h3>Установка ПО</h3>
+                    <p>Любые программы: офис, браузеры, драйверы, софт для работы</p>
+                    <span class="price">от 500 ₽</span>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-database"></i>
+                    <h3>Восстановление данных</h3>
+                    <p>Возврат удалённых файлов, работа с флешками и дисками</p>
+                    <span class="price">от 1200 ₽</span>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-globe"></i>
+                    <h3>Настройка сети и Wi‑Fi</h3>
+                    <p>Роутеры, подключение к интернету, общий доступ</p>
+                    <span class="price">от 700 ₽</span>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-print"></i>
+                    <h3>Подключение периферии</h3>
+                    <p>Принтеры, сканеры, MFP, решение конфликтов</p>
+                    <span class="price">от 600 ₽</span>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-desktop"></i>
+                    <h3>Удалённая помощь</h3>
+                    <p>AnyDesk, TeamViewer – решаю проблемы онлайн</p>
+                    <span class="price">от 600 ₽</span>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-cloud"></i>
+                    <h3>Настройка облачных сервисов</h3>
+                    <p>Google Drive, Яндекс.Диск, синхронизация данных</p>
+                    <span class="price">от 700 ₽</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ОТЗЫВЫ -->
+    <section class="reviews">
+        <div class="container">
+            <h2><i class="fas fa-star"></i> Что говорят клиенты</h2>
+            <p class="sub">Более 10 000 довольных клиентов за 10 лет работы</p>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-text">"Мастер приехал через 25 минут! Очень оперативно решил проблему с ноутбуком. Рекомендую!"</div>
+                    <div class="review-author">Анна К.</div>
+                    <div class="review-service">Чистка от пыли</div>
+                    <span class="review-date">15 января 2026</span>
+                </div>
+                <div class="review-card">
+                    <div class="review-text">"Переустановили Windows, настроили всё как надо. Компьютер теперь летает!"</div>
+                    <div class="review-author">Сергей М.</div>
+                    <div class="review-service">Установка Windows</div>
+                    <span class="review-date">3 февраля 2026</span>
+                </div>
+                <div class="review-card">
+                    <div class="review-text">"Восстановили все фотографии с жёсткого диска. Думала уже всё потеряно. Спасибо!"</div>
+                    <div class="review-author">Елена В.</div>
+                    <div class="review-service">Восстановление данных</div>
+                    <span class="review-date">28 февраля 2026</span>
+                </div>
+                <div class="review-card">
+                    <div class="review-text">"Отличный сервис! Мастер почистил ПК, заменил термопасту. Температура упала на 20°."</div>
+                    <div class="review-author">Михаил Д.</div>
+                    <div class="review-service">Чистка и замена термопасты</div>
+                    <span class="review-date">10 марта 2026</span>
+                </div>
+                <div class="review-card">
+                    <div class="review-text">"Быстро удалили все вирусы, компьютер стал работать как новый. Очень довольна!"</div>
+                    <div class="review-author">Ольга П.</div>
+                    <div class="review-service">Удаление вирусов</div>
+                    <span class="review-date">5 апреля 2026</span>
+                </div>
+                <div class="review-card">
+                    <div class="review-text">"Заменили видеокарту и добавили оперативку. Теперь все игры идут на ура!"</div>
+                    <div class="review-author">Дмитрий С.</div>
+                    <div class="review-service">Апгрейд ПК</div>
+                    <span class="review-date">22 мая 2026</span>
+                </div>
+                <div class="review-card">
+                    <div class="review-text">"Настроили Wi-Fi роутер и все устройства. Интернет теперь летает по всей квартире!"</div>
+                    <div class="review-author">Наталья Р.</div>
+                    <div class="review-service">Настройка интернета</div>
+                    <span class="review-date">8 июня 2026</span>
+                </div>
+                <div class="review-card">
+                    <div class="review-text">"Поменяли матрицу на ноутбуке за пару часов. Качество экрана отличное, цена адекватная."</div>
+                    <div class="review-author">Алексей Т.</div>
+                    <div class="review-service">Ремонт ноутбуков</div>
+                    <span class="review-date">17 июня 2026</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- КОНТАКТЫ -->
+    <section class="contacts">
+        <div class="container">
+            <h2><i class="fas fa-address-card"></i> Свяжитесь со мной</h2>
+            <p class="sub">Звоните или пишите — отвечу оперативно</p>
+            <div class="contact-block">
+                <a href="tel:+79084331011" class="contact-phone">
+                    <i class="fas fa-phone-alt"></i> 8 (908) 433-10-11
+                </a>
+                <a href="https://max.ru/u/f9LHodD0cOJ9hyhcK5zgdef61cDQbi7TMJ-0QNoZJwOIq9n7d1kb8sNKMlM" target="_blank" class="btn-max">
+                    <i class="fas fa-comment-dots"></i> Написать в MAX
+                </a>
+            </div>
+            <div class="work-area">
+                <i class="fas fa-map-marked-alt"></i> Работаю в Ульяновске и Ульяновской области
+            </div>
+        </div>
+    </section>
+
+    <!-- ФУТЕР -->
+    <footer>
+        <div class="container">
+            &copy; 2026 Вадим · Компьютерный мастер в Ульяновске · 
+            <i class="fas fa-phone" style="margin:0 4px;"></i> 
+            <a href="tel:+79084331011">8 (908) 433-10-11</a>
+        </div>
+    </footer>
+
+    <!-- ФИКСИРОВАННАЯ КНОПКА -->
+    <a href="tel:+79084331011" class="fixed-phone">
+        <i class="fas fa-phone-alt"></i>
+        <span>Позвонить</span>
+    </a>
+
+</body>
+</html>
