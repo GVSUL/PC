@@ -32,7 +32,6 @@
     <!-- /Yandex.Metrika counter -->
 
     <style>
-        /* … все стили полностью сохранены … */
         * {
             margin: 0;
             padding: 0;
@@ -263,13 +262,22 @@
             border-radius: 20px;
             text-align: center;
             border: 1px solid #e2e8f0;
-            transition: 0.25s ease;
             box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+            will-change: transform;
+            /* Анимация появления */
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
+        }
+        .service-item.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         .service-item:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 28px -8px rgba(0,0,0,0.1);
+            box-shadow: 0 12px 28px -8px rgba(0,0,0,0.15);
             border-color: #38bdf8;
+            transform: translateY(-4px);
         }
         .service-item i {
             font-size: 2.6rem;
@@ -327,7 +335,15 @@
             padding: 22px 18px 18px;
             border-radius: 16px;
             border: 1px solid #e2e8f0;
-            transition: 0.2s;
+            transition: 0.3s ease;
+            /* Анимация появления */
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .review-card.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         .review-card:hover {
             border-color: #38bdf8;
@@ -663,50 +679,50 @@
     <section class="services">
         <div class="container">
             <h2><i class="fas fa-cogs"></i> Что я делаю</h2>
-            <div class="service-grid">
-                <div class="service-item">
+            <div class="service-grid" id="serviceGrid">
+                <div class="service-item" data-delay="0">
                     <i class="fas fa-wrench"></i>
                     <h3>Настройка ПК</h3>
                     <p>Оптимизация системы, ускорение, чистка автозагрузки</p>
                     <span class="price">от 800 ₽</span>
                 </div>
-                <div class="service-item">
+                <div class="service-item" data-delay="0.1">
                     <i class="fas fa-shield-alt"></i>
                     <h3>Удаление вирусов</h3>
                     <p>Лечение от вредоносных программ, восстановление после атак</p>
                     <span class="price">от 1000 ₽</span>
                 </div>
-                <div class="service-item">
+                <div class="service-item" data-delay="0.2">
                     <i class="fas fa-upload"></i>
                     <h3>Установка ПО</h3>
                     <p>Любые программы: офис, браузеры, драйверы, софт для работы</p>
                     <span class="price">от 500 ₽</span>
                 </div>
-                <div class="service-item">
+                <div class="service-item" data-delay="0.3">
                     <i class="fas fa-database"></i>
                     <h3>Восстановление данных</h3>
                     <p>Возврат удалённых файлов, работа с флешками и дисками</p>
                     <span class="price">от 1200 ₽</span>
                 </div>
-                <div class="service-item">
+                <div class="service-item" data-delay="0.4">
                     <i class="fas fa-globe"></i>
                     <h3>Настройка сети и Wi‑Fi</h3>
                     <p>Роутеры, подключение к интернету, общий доступ</p>
                     <span class="price">от 700 ₽</span>
                 </div>
-                <div class="service-item">
+                <div class="service-item" data-delay="0.5">
                     <i class="fas fa-print"></i>
                     <h3>Подключение периферии</h3>
                     <p>Принтеры, сканеры, MFP, решение конфликтов</p>
                     <span class="price">от 600 ₽</span>
                 </div>
-                <div class="service-item">
+                <div class="service-item" data-delay="0.6">
                     <i class="fas fa-desktop"></i>
                     <h3>Удалённая помощь</h3>
                     <p>AnyDesk, TeamViewer – решаю проблемы онлайн</p>
                     <span class="price">от 600 ₽</span>
                 </div>
-                <div class="service-item">
+                <div class="service-item" data-delay="0.7">
                     <i class="fas fa-cloud"></i>
                     <h3>Настройка облачных сервисов</h3>
                     <p>Google Drive, Яндекс.Диск, синхронизация данных</p>
@@ -721,50 +737,50 @@
         <div class="container">
             <h2><i class="fas fa-star"></i> Что говорят клиенты</h2>
             <p class="sub">Более 10 000 довольных клиентов за 10 лет работы</p>
-            <div class="reviews-grid">
-                <div class="review-card">
+            <div class="reviews-grid" id="reviewsGrid">
+                <div class="review-card" data-delay="0">
                     <div class="review-text">"Мастер приехал через 25 минут! Очень оперативно решил проблему с ноутбуком. Рекомендую!"</div>
                     <div class="review-author">Анна К.</div>
                     <div class="review-service">Чистка от пыли</div>
                     <span class="review-date">15 января 2026</span>
                 </div>
-                <div class="review-card">
+                <div class="review-card" data-delay="0.1">
                     <div class="review-text">"Переустановили Windows, настроили всё как надо. Компьютер теперь летает!"</div>
                     <div class="review-author">Сергей М.</div>
                     <div class="review-service">Установка Windows</div>
                     <span class="review-date">3 февраля 2026</span>
                 </div>
-                <div class="review-card">
+                <div class="review-card" data-delay="0.2">
                     <div class="review-text">"Восстановили все фотографии с жёсткого диска. Думала уже всё потеряно. Спасибо!"</div>
                     <div class="review-author">Елена В.</div>
                     <div class="review-service">Восстановление данных</div>
                     <span class="review-date">28 февраля 2026</span>
                 </div>
-                <div class="review-card">
+                <div class="review-card" data-delay="0.3">
                     <div class="review-text">"Отличный сервис! Мастер почистил ПК, заменил термопасту. Температура упала на 20°."</div>
                     <div class="review-author">Михаил Д.</div>
                     <div class="review-service">Чистка и замена термопасты</div>
                     <span class="review-date">10 марта 2026</span>
                 </div>
-                <div class="review-card">
+                <div class="review-card" data-delay="0.4">
                     <div class="review-text">"Быстро удалили все вирусы, компьютер стал работать как новый. Очень довольна!"</div>
                     <div class="review-author">Ольга П.</div>
                     <div class="review-service">Удаление вирусов</div>
                     <span class="review-date">5 апреля 2026</span>
                 </div>
-                <div class="review-card">
+                <div class="review-card" data-delay="0.5">
                     <div class="review-text">"Заменили видеокарту и добавили оперативку. Теперь все игры идут на ура!"</div>
                     <div class="review-author">Дмитрий С.</div>
                     <div class="review-service">Апгрейд ПК</div>
                     <span class="review-date">22 мая 2026</span>
                 </div>
-                <div class="review-card">
+                <div class="review-card" data-delay="0.6">
                     <div class="review-text">"Настроили Wi-Fi роутер и все устройства. Интернет теперь летает по всей квартире!"</div>
                     <div class="review-author">Наталья Р.</div>
                     <div class="review-service">Настройка интернета</div>
                     <span class="review-date">8 июня 2026</span>
                 </div>
-                <div class="review-card">
+                <div class="review-card" data-delay="0.7">
                     <div class="review-text">"Поменяли матрицу на ноутбуке за пару часов. Качество экрана отличное, цена адекватная."</div>
                     <div class="review-author">Алексей Т.</div>
                     <div class="review-service">Ремонт ноутбуков</div>
@@ -813,7 +829,9 @@
         <img src="1782028728161.jpg" alt="Увеличенное фото" id="lightbox-img" />
     </div>
 
+    <!-- СКРИПТЫ -->
     <script>
+        // ===== УВЕЛИЧЕНИЕ ФОТО (лайтбокс) =====
         (function() {
             const avatar = document.getElementById('avatar');
             const lightbox = document.getElementById('lightbox');
@@ -846,6 +864,54 @@
                 lightbox.classList.remove('active');
                 document.body.style.overflow = '';
             }
+        })();
+
+        // ===== ПЛАВНОЕ ПОЯВЛЕНИЕ БЛОКОВ ПРИ СКРОЛЛЕ =====
+        (function() {
+            // Выбираем все элементы, которые должны анимироваться
+            const items = document.querySelectorAll('.service-item, .review-card');
+
+            // Настройки Intersection Observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const el = entry.target;
+                        // Получаем задержку из атрибута data-delay (в секундах)
+                        const delay = parseFloat(el.getAttribute('data-delay')) || 0;
+                        // Добавляем класс visible с задержкой
+                        setTimeout(() => {
+                            el.classList.add('visible');
+                        }, delay * 1000);
+                        // Перестаём наблюдать за этим элементом (он уже появился)
+                        observer.unobserve(el);
+                    }
+                });
+            }, {
+                threshold: 0.15, // сработает, когда 15% элемента видно
+                rootMargin: '0px 0px -50px 0px' // небольшой отступ снизу для более раннего появления
+            });
+
+            // Начинаем наблюдать за каждым элементом
+            items.forEach(item => {
+                observer.observe(item);
+            });
+
+            // Для элементов, которые уже видны при загрузке (например, на экране сразу), 
+            // проверяем вручную через requestAnimationFrame
+            requestAnimationFrame(() => {
+                items.forEach(item => {
+                    const rect = item.getBoundingClientRect();
+                    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+                    // Если элемент виден (его верхняя граница внутри окна или чуть ниже)
+                    if (rect.top < windowHeight - 50 && rect.bottom > 0) {
+                        const delay = parseFloat(item.getAttribute('data-delay')) || 0;
+                        setTimeout(() => {
+                            item.classList.add('visible');
+                        }, delay * 1000);
+                        observer.unobserve(item);
+                    }
+                });
+            });
         })();
     </script>
 
